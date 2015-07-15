@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Todolist</title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
   </head>
 
@@ -15,23 +16,33 @@
           <a href="#"></a>
           <a href="#"></a>
         </div>
-        <p class="all-tasks">All tasks</p>
-        <div class="aux-buttons">
+        <p class="title-all-tasks">All tasks</p>
+        <div class="title-aux-buttons">
           <a href=""><span class="fa fa-search"></span></a>
           <a href=""><span class="fa fa-plus-circle"></span></a>
         </div>
       </header>
 
-      <nav>
-        <a href=""><span class="fa fa-inbox"></span></a>
-        <a href=""><span class="fa fa-home"></span></a>
-        <a href=""><span class="fa fa-briefcase"></span></a>
-        <a href=""><span class="fa fa-desktop"></span></a>
-        <a href=""><span class="fa fa-users"></span></a>
-        <a href=""><span class="fa fa-cog"></span></a>
+      <nav class="main-nav nav-and-tasks">
+        <a href=""><span class="tasks-button nav-icon fa fa-inbox fa-2x"></span></a>
+        <a href=""><span class="home-button nav-icon fa fa-home fa-2x"></span></a>
+        <a href=""><span class="briefcase-button nav-icon fa fa-briefcase fa-2x"></span></a>
+        <a href=""><span class="screen-button nav-icon fa fa-desktop fa-2x"></span></a>
+        <a href=""><span class="users-button nav-icon fa fa-users fa-2x"></span></a>
+        <a href=""><span class="gear-button nav-icon fa fa-cog fa-2x"></span></a>
       </nav>
 
-      <section>
+      <section class="tasks-wrapper nav-and-tasks">
+        <div class="task-box task-box-main">
+          <div class="checkbox empty">
+            <span class="fa fa-circle-thin fa-lg"></span>
+          </div>
+          <div class="task-content">
+            <p class="location-and-date"><a href="#"><span class="fa fa-map-marker"></span></a> At Tesco | Next monday</p><a href="#" class="favourite"><span class="fa fa-star"></span></a>
+            <h1>Buy a new better toothbrush</h1>
+          </div>
+
+        </div>
         <a href=""><span class="fa fa-circle-thin"></span></a>
         <a href=""><span class="fa fa-check-circle"></span></a>
         <a href=""><span class="fa fa-star"></span></a>
