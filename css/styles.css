@@ -8,8 +8,31 @@
 }
 
 body{
-  background-color: teal;
   color: #fff;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+
+body:before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+
+  display: block;
+  background: url(../img/creek.jpg) no-repeat center center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
 }
 
 /**
@@ -35,13 +58,21 @@ body{
   float: left;
 }
 
+.col-1 {
+  width: 100%;
+}
+
+.col-2 {
+  width: 50%;
+  float: left;
+}
 
 /**
   *Tiltle bar
   */
 
 .title-bar {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.3);
   text-align: center;
 }
 
@@ -123,7 +154,7 @@ body{
 
 
 /**
-  * Main section
+  * Main section, task boxes
   */
 
 .tasks-wrapper {
@@ -135,7 +166,6 @@ body{
   border-bottom: 1px solid #9596a4;
   display: table;
   clear: both;
-  width: 100%;
 }
 
 .task-box span {
