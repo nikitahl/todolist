@@ -1,6 +1,6 @@
-/**
-  * Styles for todolist page
-  */
+/**********************************
+      * Styles for todolist page
+**********************************/
 
 
 * {
@@ -13,6 +13,7 @@ body{
   left: 0;
   right: 0;
   z-index: 0;
+  font-family: 'Open Sans', sans-serif;
 }
 
 body:before {
@@ -35,9 +36,9 @@ body:before {
   filter: blur(10px);
 }
 
-/**
-  *Reusable classes
-  */
+/**********************************
+        *Reusable classes
+**********************************/
 
 .clearfix::after {
     content: '';
@@ -51,11 +52,7 @@ body:before {
 
 .wrapper {
   max-width: 600px;
-  margin: 100px auto;
-}
-
-.nav-and-tasks {
-  float: left;
+  margin: 30px auto;
 }
 
 .col-1 {
@@ -67,9 +64,19 @@ body:before {
   float: left;
 }
 
-/**
-  *Tiltle bar
-  */
+.centered-content {
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+
+}
+
+/**********************************
+          *Tiltle bar
+**********************************/
 
 .title-bar {
   background-color: rgba(255, 255, 255, 0.3);
@@ -79,53 +86,57 @@ body:before {
 .title-bar-buttons {
   display: inline-block;
   float: left;
-  margin: 10px;
+  margin: 18px;
 }
 
 .title-bar-buttons a {
   box-sizing: content-box;
   display: block;
-  width: 12px;
-  height: 12px;
+  width: 11px;
+  height: 11px;
   float: left;
   margin: 0 2px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.4);
   text-indent: -9999px;
   border-radius: 10px;
 }
 
 .title-all-tasks {
   display: inline-block;
+  margin: 35px 0 10px 0;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .title-aux-buttons {
   display: inline-block;
   float: right;
-  margin: 16px 16px 16px 0;
+  margin: 35px 16px 10px 0;
 }
 
 .title-aux-buttons a {
   color: rgba(255, 255, 255, 0.5);
-  margin: 0 5px;
+  margin: 0 8px;
 }
 
-/**
-  *Navigation
-  */
+/**********************************
+        * Navigation
+**********************************/
 
 .main-nav {
-  width: 10%;
+  width: 70px;
+  float: left;
 }
 
 .main-nav a {
   text-decoration: none;
+  position: relative;
+  height: 70px;
+  display: block;
 }
 
 .nav-icon {
-  display: block;
   color: rgba(255, 255, 255, 0.8);
-  text-align: center;
-  padding: 15px 0;
 }
 
 .tasks-button {
@@ -153,19 +164,19 @@ body:before {
 }
 
 
-/**
-  * Main section, task boxes
-  */
+/**********************************
+    * Main section, task boxes
+**********************************/
 
 .tasks-wrapper {
-  width: 90%;
+  width: 530px;
+  float: left;
 }
 
 .task-box {
   background-color: #55566e;
   border-bottom: 1px solid #9596a4;
   display: table;
-  clear: both;
 }
 
 .task-box span {
@@ -174,12 +185,19 @@ body:before {
 
 .task-box h1 {
   clear:both;
+  font-weight: normal;
+  font-size: 45px;
+  margin: 35px 0 0;
+  line-height: 1.4;
 }
 
 .location-and-date {
   color: #9596a4;
   display: inline-block;
   float: left;
+  font-weight: bold;
+  font-size: 12px;
+  margin: 5px;
 }
 
 .favourite {
@@ -187,18 +205,25 @@ body:before {
   float: right;
 }
 
-.task-box-main {
-  border-right: 10px solid #ff5f65;
+.task-content {
+  padding: 25px 25px 15px;
+  position: relative;
 }
 
-.task-content {
-  padding: 20px;
+.task-content::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  right: 0;
+  top: 0;
+  background-color: #ff5f65;
 }
 
 .checkbox {
   background-color: #4c4b62;
-  width: 10%;
-  text-align: center;
+  width: 45px;
+  position: relative;
 }
 
 .checkbox, .task-content {

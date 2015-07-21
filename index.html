@@ -3,12 +3,31 @@
   <head>
     <meta charset="utf-8">
     <title>Todolist</title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" >
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+    .fixedimage {
+      position: absolute;
+      top: 30px;
+      right: 0;
+      left: 0;
+      height: 2000px;
+      opacity: .5;
+      z-index: 1000;
+      background: url(img/todolist.png) top center no-repeat;
+    }
+    </style>
   </head>
 
   <body>
+
+
+  <!-- <div class="fixedimage">
+  </div> -->
+
     <div class="wrapper">
       <header class="title-bar">
         <div class="title-bar-buttons clearfix">
@@ -16,51 +35,57 @@
           <a href="#"></a>
           <a href="#"></a>
         </div>
-        <p class="title-all-tasks">All tasks</p>
+        <h3 class="title-all-tasks">All tasks</h3>
         <div class="title-aux-buttons">
-          <a href=""><span class="fa fa-search"></span></a>
-          <a href=""><span class="fa fa-plus-circle"></span></a>
+          <a href=""><span class="fa fa-search fa-lg"></span></a>
+          <a href=""><span class="fa fa-plus-circle fa-lg"></span></a>
         </div>
       </header>
 
-      <nav class="main-nav nav-and-tasks">
-        <a href=""><span class="tasks-button nav-icon fa fa-inbox fa-2x"></span></a>
-        <a href=""><span class="home-button nav-icon fa fa-home fa-2x"></span></a>
-        <a href=""><span class="briefcase-button nav-icon fa fa-briefcase fa-2x"></span></a>
-        <a href=""><span class="screen-button nav-icon fa fa-desktop fa-2x"></span></a>
-        <a href=""><span class="users-button nav-icon fa fa-users fa-2x"></span></a>
-        <a href=""><span class="gear-button nav-icon fa fa-cog fa-2x"></span></a>
+      <nav class="main-nav">
+        <a href="#" class="tasks-button"><span class="centered-content nav-icon fa fa-inbox fa-lg"></span></a>
+        <a href="#" class="home-button"><span class="centered-content nav-icon fa fa-home fa-lg"></span></a>
+        <a href="#" class="briefcase-button"><span class="centered-content nav-icon fa fa-briefcase fa-lg"></span></a>
+        <a href="#" class="screen-button"><span class="centered-content nav-icon fa fa-desktop fa-lg"></span></a>
+        <a href="#" class="users-button"><span class="centered-content nav-icon fa fa-users fa-lg"></span></a>
+        <a href="#" class="gear-button"><span class="centered-content nav-icon fa fa-cog fa-lg"></span></a>
       </nav>
 
-      <section class="tasks-wrapper nav-and-tasks">
+      <section class="tasks-wrapper">
         <div class="task-box task-box-main col-1">
           <div class="checkbox empty">
-            <span class="fa fa-circle-thin fa-lg"></span>
+            <span class="centered-content fa fa-circle-thin fa-lg"></span>
           </div>
           <div class="task-content">
-            <p class="location-and-date"><a href="#"><span class="fa fa-map-marker"></span></a> At Tesco | Next monday</p><a href="#" class="favourite"><span class="fa fa-star"></span></a>
-            <h1>Buy a new better toothbrush</h1>
-          </div>
-        </div>
-        <div class="task-box col-2">
-          <div class="checkbox empty">
-            <span class="fa fa-circle-thin fa-lg"></span>
-          </div>
-          <div class="task-content">
-            <p class="location-and-date"><a href="#"><span class="fa fa-map-marker"></span></a> At Tesco | Next monday</p><a href="#" class="favourite"><span class="fa fa-star"></span></a>
+            <p class="location-and-date"><a href="#"><span class="fa fa-map-marker fa-lg"></span></a> At Tesco | Next monday</p><a href="#" class="favourite"><span class="fa fa-star"></span></a>
             <h1>Buy a new better toothbrush</h1>
           </div>
         </div>
 
-        <div class="task-box col-2">
-          <div class="checkbox empty">
-            <span class="fa fa-circle-thin fa-lg"></span>
-          </div>
-          <div class="task-content">
-            <p class="location-and-date"><a href="#"><span class="fa fa-map-marker"></span></a> At Tesco | Next monday</p><a href="#" class="favourite"><span class="fa fa-star"></span></a>
-            <h1>Buy a new better toothbrush</h1>
+        <!-- <div class="col-2">
+          <div class="task-box">
+            <div class="checkbox empty">
+              <span class="centered-content fa fa-circle-thin fa-lg"></span>
+            </div>
+            <div class="task-content">
+              <p class="location-and-date"><a href="#"><span class="fa fa-map-marker fa-lg"></span></a> At Tesco | Next monday</p><a href="#" class="favourite"><span class="fa fa-star"></span></a>
+              <p>Clean my room</p>
+            </div>
           </div>
         </div>
+        <div class="col-2">
+          <div class="task-box">
+            <div class="checkbox empty">
+              <span class="centered-content fa fa-circle-thin fa-lg"></span>
+            </div>
+            <div class="task-content">
+              <p class="location-and-date"><a href="#"><span class="fa fa-map-marker fa-lg"></span></a> At Tesco | Next monday</p><a href="#" class="favourite"><span class="fa fa-star"></span></a>
+              <p>Clean the house and mauris pretium purus id sapien consectetur</p>
+            </div>
+          </div>
+        </div> -->
+
+
         <!-- <a href=""><span class="fa fa-circle-thin"></span></a>
         <a href=""><span class="fa fa-check-circle"></span></a>
         <a href=""><span class="fa fa-star"></span></a>
