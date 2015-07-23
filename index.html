@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/styles.css">
 
     <style>
-    .fixedimage {
+    .fixed-image {
       position: absolute;
       top: 30px;
       right: 0;
@@ -19,18 +19,32 @@
       z-index: 1000;
       background: url(img/todolist.png) top center no-repeat;
     }
+
+    .overlay-button {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      opacity: .8;
+      color: #000;
+      font-size: 12px;
+      z-index: 1001;
+    }
+
     </style>
   </head>
 
   <body>
 
-
-  <!-- <div class="fixedimage">
-  </div> -->
+  <!-- elements for comparing -->
+  <div class="layer fixed-image">
+  </div>
+  <button type="button" name="button" class="overlay-button">On/Off</button>
+  <!-- end elements for comparing -->
 
     <div class="wrapper">
+
       <header class="title-bar">
-        <div class="title-bar-buttons clearfix">
+        <div class="title-bar-buttons">
           <a href="#"></a>
           <a href="#"></a>
           <a href="#"></a>
@@ -42,55 +56,102 @@
         </div>
       </header>
 
-      <nav class="main-nav">
-        <a href="#" class="tasks-button"><span class="centered-content nav-icon fa fa-inbox fa-lg"></span></a>
-        <a href="#" class="home-button"><span class="centered-content nav-icon fa fa-home fa-lg"></span></a>
-        <a href="#" class="briefcase-button"><span class="centered-content nav-icon fa fa-briefcase fa-lg"></span></a>
-        <a href="#" class="screen-button"><span class="centered-content nav-icon fa fa-desktop fa-lg"></span></a>
-        <a href="#" class="users-button"><span class="centered-content nav-icon fa fa-users fa-lg"></span></a>
-        <a href="#" class="gear-button"><span class="centered-content nav-icon fa fa-cog fa-lg"></span></a>
-      </nav>
+      <main class="main-section">
+        <nav class="main-nav">
+          <a href="#" class="tasks-button"><span class="centered-content nav-icon fa fa-inbox fa-lg"></span></a>
+          <a href="#" class="home-button"><span class="centered-content nav-icon fa fa-home fa-lg"></span></a>
+          <a href="#" class="briefcase-button"><span class="centered-content nav-icon fa fa-briefcase fa-lg"></span></a>
+          <a href="#" class="screen-button"><span class="centered-content nav-icon fa fa-desktop fa-lg"></span></a>
+          <a href="#" class="users-button"><span class="centered-content nav-icon fa fa-users fa-lg"></span></a>
+          <a href="#"><span class="centered-content nav-icon fa fa-cog fa-lg"></span></a>
+        </nav>
 
-      <section class="tasks-wrapper">
-        <div class="task-box task-box-main col-1">
-          <div class="checkbox empty">
-            <span class="centered-content fa fa-circle-thin fa-lg"></span>
-          </div>
-          <div class="task-content">
-            <p class="location-and-date"><a href="#"><span class="fa fa-map-marker fa-lg"></span></a> At Tesco | Next monday</p><a href="#" class="favourite"><span class="fa fa-star"></span></a>
-            <h1>Buy a new better toothbrush</h1>
-          </div>
-        </div>
-
-        <!-- <div class="col-2">
-          <div class="task-box">
-            <div class="checkbox empty">
+        <section class="tasks-wrapper">
+          <div class="task-box task-box-main">
+            <div class="checkbox checkbox-colored empty">
               <span class="centered-content fa fa-circle-thin fa-lg"></span>
             </div>
             <div class="task-content">
               <p class="location-and-date"><a href="#"><span class="fa fa-map-marker fa-lg"></span></a> At Tesco | Next monday</p><a href="#" class="favourite"><span class="fa fa-star"></span></a>
-              <p>Clean my room</p>
+              <h1>Buy a new better toothbrush</h1>
             </div>
           </div>
-        </div>
-        <div class="col-2">
-          <div class="task-box">
-            <div class="checkbox empty">
-              <span class="centered-content fa fa-circle-thin fa-lg"></span>
+
+          <div class="col-2">
+            <div class="task-box task-box-undone">
+              <div class="checkbox checkbox-colored empty">
+                <span class="centered-content fa fa-circle-thin fa-lg"></span>
+              </div>
+              <div class="task-content task-content-small yellow-content clean-room">
+                <p class="location-and-date location-and-date-small">Tomorrow</p>
+                <p class="task-name">Clean my room</p>
+              </div>
             </div>
-            <div class="task-content">
-              <p class="location-and-date"><a href="#"><span class="fa fa-map-marker fa-lg"></span></a> At Tesco | Next monday</p><a href="#" class="favourite"><span class="fa fa-star"></span></a>
-              <p>Clean the house and mauris pretium purus id sapien consectetur</p>
+            <div class="task-box task-box-undone">
+              <div class="checkbox checkbox-colored empty">
+                <span class="centered-content fa fa-circle-thin fa-lg"></span>
+              </div>
+              <div class="task-content task-content-small purple-content">
+                <p class="location-and-date location-and-date-small">18. September 2013</p>
+                <p class="task-name">Do a homework from ipsum dolor amet, consectetur adipiscing</p>
+              </div>
+            </div>
+            <div class="task-box checked">
+              <div class="checkbox">
+                <span class="centered-content fa fa-check-circle fa-lg"></span>
+              </div>
+              <div class="task-content task-content-small">
+                <p class="location-and-date location-and-date-small">Yesterday</p>
+                <p class="task-name">Buy a milk</p>
+              </div>
             </div>
           </div>
-        </div> -->
 
 
-        <!-- <a href=""><span class="fa fa-circle-thin"></span></a>
-        <a href=""><span class="fa fa-check-circle"></span></a>
-        <a href=""><span class="fa fa-star"></span></a>
-        <a href=""><span class="fa fa-map-marker"></span></a> -->
-      </section>
-    </div>
+          <div class="col-2">
+            <div class="task-box task-box-undone">
+              <div class="checkbox checkbox-colored empty">
+                <span class="centered-content fa fa-circle-thin fa-lg"></span>
+              </div>
+              <div class="task-content task-content-small teal-content">
+                <p class="location-and-date location-and-date-small">14. September 2013</p>
+                <p class="task-name">Clean the house and mauris pretium purus id sapien consectetur</p>
+              </div>
+            </div>
+            <div class="task-box checked">
+              <div class="checkbox">
+                <span class="centered-content fa fa-check-circle fa-lg"></span>
+              </div>
+              <div class="task-content task-content-small purple-content">
+                <p class="location-and-date location-and-date-small">5. October 2013</p>
+                <p class="task-name">Gift to Petra</p>
+              </div>
+            </div>
+            <div class="task-box checked task-box-undone">
+              <div class="checkbox">
+                <span class="centered-content fa fa-check-circle fa-lg"></span>
+              </div>
+              <div class="task-content task-content-small yellow-content">
+                <p class="location-and-date location-and-date-small">Last week</p>
+                <p class="task-name">Call to Jakub Antalik</p>
+              </div>
+            </div>
+          </div>
+
+        </section>
+      </main>
+
+    </div> <!-- .wrapper -->
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+        $(".overlay-button").click(function(){
+          $(".layer").toggleClass("fixed-image");
+        });
+
+      });
+    </script>
   </body>
 </html>

@@ -37,26 +37,13 @@ body:before {
 }
 
 /**********************************
-        *Reusable classes
+        * Reusable classes
 **********************************/
 
-.clearfix::after {
-    content: '';
-    display: table;
-    float: none;
-    clear: both;
-    height: 0;
-    visibility: hidden;
-  }
-
-
 .wrapper {
-  max-width: 600px;
+  width: 600px;
   margin: 30px auto;
-}
-
-.col-1 {
-  width: 100%;
+  overflow: hidden;
 }
 
 .col-2 {
@@ -71,11 +58,14 @@ body:before {
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%)
+}
 
+.main-section {
+  display: table;
 }
 
 /**********************************
-          *Tiltle bar
+          * Tiltle bar
 **********************************/
 
 .title-bar {
@@ -84,32 +74,26 @@ body:before {
 }
 
 .title-bar-buttons {
-  display: inline-block;
   float: left;
   margin: 18px;
 }
 
 .title-bar-buttons a {
-  box-sizing: content-box;
-  display: block;
   width: 11px;
   height: 11px;
   float: left;
   margin: 0 2px;
   background-color: rgba(255, 255, 255, 0.4);
-  text-indent: -9999px;
   border-radius: 10px;
 }
 
 .title-all-tasks {
   display: inline-block;
   margin: 35px 0 10px 0;
-  font-weight: bold;
   font-size: 18px;
 }
 
 .title-aux-buttons {
-  display: inline-block;
   float: right;
   margin: 35px 16px 10px 0;
 }
@@ -125,7 +109,10 @@ body:before {
 
 .main-nav {
   width: 70px;
-  float: left;
+  /*float: left;*/
+  display: table-cell;
+  background-color: rgba(52, 63, 70, 0.5);
+  position: relative;
 }
 
 .main-nav a {
@@ -133,6 +120,13 @@ body:before {
   position: relative;
   height: 70px;
   display: block;
+}
+
+.main-nav a:last-child {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .nav-icon {
@@ -169,14 +163,33 @@ body:before {
 **********************************/
 
 .tasks-wrapper {
-  width: 530px;
-  float: left;
+  /*width: 530px;
+  float: left;*/
+  display: table-cell;
+  vertical-align: top;
 }
 
 .task-box {
   background-color: #55566e;
-  border-bottom: 1px solid #9596a4;
   display: table;
+  width: 100%;
+  position: relative;
+}
+
+.task-box-main::before {
+  content: '';
+  position: absolute;
+  top: 25px;
+  right: 99%;
+  width: 0;
+  height: 0;
+  border-top: 11px solid transparent;
+  border-right: 13px solid #4c4b62;
+  border-bottom: 11px solid transparent;
+}
+
+.task-box-undone {
+  border-top: 1px solid #9596a4;
 }
 
 .task-box span {
@@ -186,28 +199,35 @@ body:before {
 .task-box h1 {
   clear:both;
   font-weight: normal;
-  font-size: 45px;
+  font-size: 44px;
   margin: 35px 0 0;
   line-height: 1.4;
 }
 
 .location-and-date {
   color: #9596a4;
-  display: inline-block;
   float: left;
   font-weight: bold;
   font-size: 12px;
   margin: 5px;
 }
 
+.location-and-date-small {
+  margin: 0;
+  font-size: 10px;
+}
+
 .favourite {
-  display: inline-block;
   float: right;
 }
 
 .task-content {
-  padding: 25px 25px 15px;
+  padding: 25px 35px 15px 25px;
   position: relative;
+}
+
+.task-content-small {
+  padding: 20px 35px 15px 30px;
 }
 
 .task-content::after {
@@ -220,12 +240,43 @@ body:before {
   background-color: #ff5f65;
 }
 
+.task-name {
+  margin: 23px 0 0;
+  line-height: 1.5;
+}
+
 .checkbox {
-  background-color: #4c4b62;
   width: 45px;
   position: relative;
 }
 
+.checkbox-colored {
+  background-color: #4c4b62;
+}
+
 .checkbox, .task-content {
   display: table-cell;
+}
+
+.checked {
+  -webkit-filter: grayscale(.5);
+  filter: grayscale(.5);
+  opacity: .75;
+  color: #7e8387;
+}
+
+.yellow-content::after {
+  background-color: #fdcd63;
+}
+
+.teal-content::after {
+  background-color: #00eeb8;
+}
+
+.purple-content::after {
+  background-color: #d575f8;
+}
+
+.clean-room {
+  border-left: 1px solid #FF5F65;
 }
