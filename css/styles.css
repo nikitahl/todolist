@@ -23,10 +23,8 @@ body:before {
   right: 0;
   z-index: -1;
 
-  display: block;
-  background: url(../img/creek.jpg) no-repeat center center;
+  background: url(../img/berries.jpg) no-repeat center center;
   background-size: cover;
-  width: 100%;
   height: 100%;
 
   -webkit-filter: blur(10px);
@@ -37,13 +35,14 @@ body:before {
 }
 
 /**********************************
-        * Reusable classes
+    * General reusable classes
 **********************************/
 
 .wrapper {
   width: 600px;
   margin: 30px auto;
   overflow: hidden;
+  position: relative;
 }
 
 .col-2 {
@@ -62,6 +61,32 @@ body:before {
 
 .main-section {
   display: table;
+  position: relative;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.task-link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.selected-arrow-position {
+  position: relative;
+}
+
+.selected-arrow::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
 }
 
 /**********************************
@@ -71,6 +96,7 @@ body:before {
 .title-bar {
   background-color: rgba(255, 255, 255, 0.3);
   text-align: center;
+  position: relative;
 }
 
 .title-bar-buttons {
@@ -104,12 +130,128 @@ body:before {
 }
 
 /**********************************
+        * Search bar
+**********************************/
+
+
+.search-bar,
+.add-task-bar {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  z-index: 10;
+  padding: 30px;
+  text-align: left;
+}
+
+.search-bar input {
+  width: 90%;
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  color: #fff;
+  font-size: 30px;
+  margin: 0 0 0 15px;
+}
+
+.search-bar input:focus {
+  outline: 0;
+}
+
+.search-bar span {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.lightbox-dark {
+  position: absolute;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  top: 69px;
+}
+
+.lightbox-active {
+  z-index: 100;
+}
+
+/**********************************
+        * Add task bar
+**********************************/
+
+.add-task-bar {
+  padding: 0;
+}
+
+.add-new-task {
+  color: rgba(255, 255, 255, 0.8);
+  vertical-align: middle;
+  padding: 30px;
+}
+
+.add-new-task:last-child {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.add-new-task a {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.add-new-task h2 {
+  font-weight: normal;
+  font-size: 29px;
+  float: left;
+  margin: 0
+}
+
+.add-new-task p {
+  float: left;
+  margin: 10px 0;
+}
+
+.add-new-task div {
+  float: right;
+}
+
+.select-category-icons a {
+  padding: 23px;
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.add-task-icons {
+  margin: 10px 0;
+}
+
+.add-task-icons a {
+  margin: 0 8px;
+}
+
+.category-button {
+  color: #ff5f65;
+}
+
+.close-button {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.selected-arrow-add-task::before {
+  top: 49px;
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  border-bottom: 13px solid rgba(255, 255, 255, 0.1);
+}
+
+/**********************************
         * Navigation
 **********************************/
 
 .main-nav {
   width: 70px;
-  /*float: left;*/
   display: table-cell;
   background-color: rgba(52, 63, 70, 0.5);
   position: relative;
@@ -157,35 +299,33 @@ body:before {
   background-color: #343f46;
 }
 
+.selected-arrow-menu-btn::before {
+  top: 35%;
+  right: 0;
+  border-top: 10px solid transparent;
+  border-right: 11px solid #4c4b62;
+  border-bottom: 10px solid transparent;
+}
 
 /**********************************
     * Main section, task boxes
 **********************************/
 
 .tasks-wrapper {
-  /*width: 530px;
-  float: left;*/
   display: table-cell;
   vertical-align: top;
+  position: relative;
+  background-color: rgba(85, 86, 110, 0.85);
 }
 
 .task-box {
-  background-color: #55566e;
   display: table;
   width: 100%;
   position: relative;
 }
 
-.task-box-main::before {
-  content: '';
-  position: absolute;
-  top: 25px;
-  right: 99%;
-  width: 0;
-  height: 0;
-  border-top: 11px solid transparent;
-  border-right: 13px solid #4c4b62;
-  border-bottom: 11px solid transparent;
+.task-box-solid {
+  background-color: rgba(85, 86, 110, 1);
 }
 
 .task-box-undone {
@@ -196,12 +336,22 @@ body:before {
   color: #9596a4;
 }
 
+.task-box h1,
+ h2 {
+  font-weight: normal;
+  line-height: 1.4;
+}
+
+.task-box h2 {
+  width: 60%;
+  margin: 0;
+  float: left;
+}
+
 .task-box h1 {
   clear:both;
-  font-weight: normal;
   font-size: 44px;
   margin: 35px 0 0;
-  line-height: 1.4;
 }
 
 .location-and-date {
@@ -230,7 +380,7 @@ body:before {
   padding: 20px 35px 15px 30px;
 }
 
-.task-content::after {
+.task-line::after {
   content: '';
   position: absolute;
   width: 10px;
@@ -265,18 +415,140 @@ body:before {
   color: #7e8387;
 }
 
-.yellow-content::after {
+.yellow-line::after {
   background-color: #fdcd63;
 }
 
-.teal-content::after {
+.teal-line::after {
   background-color: #00eeb8;
 }
 
-.purple-content::after {
+.purple-line::after {
   background-color: #d575f8;
 }
 
 .clean-room {
-  border-left: 1px solid #FF5F65;
+  border-left: 1px solid #ff5f65;
+}
+
+/**********************************
+    * Task details
+**********************************/
+
+.task-details {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  background-color: #55566e;
+}
+
+.task-details a {
+  text-decoration: none;
+  color: #9596a4;
+}
+
+.task-details p {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.paperclip {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.upper-content::after {
+  height: 10px;
+  width: 100%;;
+}
+
+.task-content-details {
+  padding: 20px 20px 20px 10px;
+}
+
+.task-content-details-small {
+  padding: 0 0 0 10px;
+}
+
+.teal-content {
+  color: #00eeb8;
+}
+
+/**********************************
+    * Due date calendar
+**********************************/
+
+.set-due-date {
+  position: absolute;
+  right: 100%;
+  top: 10px;
+  background-color: #fff;
+  color: #4f5064;
+  text-align: center;
+}
+
+.prev-next-month {
+  color: #cfcfd3;
+}
+
+.calendar-controls,
+.calendar-header {
+  background-color: #ecedf7;
+  padding: 10px;
+}
+
+.calendar-controls span {
+  margin: 0 5px;
+  font-weight: bold;
+}
+
+.calendar-header {
+  border-left: 11px solid #ecedf7;
+  border-right: 11px solid #ecedf7;
+}
+
+.calendar-body {
+  border-bottom: 11px solid #fff;
+  border-left: 11px solid #fff;
+  border-right: 11px solid #fff;
+  border-top: 12px solid #fff;
+}
+
+.calendar {
+  font-size: 11px;
+}
+
+.calendar td {
+  padding: 7px;
+}
+
+.calendar th {
+  text-transform: uppercase;
+  padding: 0 5px 10px 5px;
+  font-size: 9px;
+}
+
+.cell-border,
+.cell-background {
+  border-radius: 50%;
+  padding: 3px;
+}
+
+.cell-border {
+  border: 1px solid red;
+}
+
+.cell-background {
+  background-color: #dce0e4;
+}
+
+.selected-arrow-details::before {
+  left: 0;
+  top: 45%;
+  border-top: 5px solid transparent;
+	border-left: 6px solid #fff;
+	border-bottom: 5px solid transparent;
 }

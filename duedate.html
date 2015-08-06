@@ -7,45 +7,15 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
-
-    <style>
-    .fixed-image {
-      position: absolute;
-      top: 30px;
-      right: 0;
-      left: 0;
-      height: 2000px;
-      opacity: .5;
-      z-index: 1000;
-      background: url(img/todolist.png) top center no-repeat;
-    }
-
-    .overlay-button {
-      position: fixed;
-      left: 20px;
-      bottom: 20px;
-      opacity: .8;
-      color: #000;
-      font-size: 12px;
-      z-index: 1001;
-    }
-
-    </style>
   </head>
 
   <body>
 
-  <!-- elements for comparing -->
-  <div class="layer">
-  </div>
-  <button type="button" name="button" class="overlay-button">On/Off</button>
-  <!-- end elements for comparing -->
-
     <div class="wrapper">
 
-      <header class="title-bar">
+      <header class="title-bar lightbox-active">
         <div class="title-bar-buttons">
-          <a href="#"></a>
+          <a href="index.html"></a>
           <a href="#"></a>
           <a href="#"></a>
         </div>
@@ -55,6 +25,9 @@
           <a href="addtask.html"><span class="fa fa-plus-circle fa-lg"></span></a>
         </div>
       </header>
+
+      <div class="lightbox-dark">
+      </div>
 
       <main class="main-section">
         <nav class="main-nav">
@@ -140,19 +113,134 @@
           </div>
 
         </section>
+        <!-- Task details -->
+        <div class="task-details lightbox-active">
+          <div class="task-box task-line teal-line upper-content">
+            <div class="checkbox empty">
+              <span class="centered-content fa fa-circle-thin fa-lg"></span>
+            </div>
+            <div class="task-content task-content-details">
+              <h2>Buy a new toothbrush</h2>
+              <a href="#" class="favourite"><span class="fa fa-star-o"></span></a>
+            </div>
+          </div>
+          <div class="task-box-undone checkbox-colored selected-arrow-position selected-arrow selected-arrow-details">
+            <a href="duedate.html">
+              <div class="checkbox empty">
+                <span class="centered-content fa fa-calendar fa-lg"></span>
+              </div>
+              <div class="task-content task-content-details-small">
+                <p>Set a due date</p>
+              </div>
+            </a>
+          </div>
+          <div class="task-box-undone">
+            <a href="#">
+              <div class="checkbox empty">
+                <span class="centered-content fa fa-clock-o fa-lg"></span>
+              </div>
+              <div class="task-content task-content-details-small">
+                <p>Set a reminder</p>
+              </div>
+            </a>
+          </div>
+          <div class="task-box-undone">
+            <a href="#">
+              <div class="checkbox empty">
+                <span class="centered-content teal-content fa fa-circle fa-lg"></span>
+              </div>
+              <div class="task-content task-content-details-small">
+                <p>Work</p>
+              </div>
+            </a>
+          </div>
+          <div class="task-box-undone">
+            <a href="#">
+              <div class="checkbox empty">
+                <span class="centered-content fa fa-edit fa-lg"></span>
+              </div>
+              <div class="task-content task-content-details-small">
+                <p>Add note</p>
+              </div>
+            </a>
+          </div>
+          <div class="paperclip">
+            <a href="#"><span class="fa fa-paperclip fa-lg"></span></a>
+          </div>
+          <div class="set-due-date">
+            <div class="calendar-controls">
+              <span><a href="#">&lt;</a></span>
+              <span>September</span>
+              <span><a href="#">&gt;</a></span>
+            </div>
+            <table class="calendar">
+              <thead class="calendar-header">
+                <tr>
+                  <th>mon</th>
+                  <th>tue</th>
+                  <th>wed</th>
+                  <th>thu</th>
+                  <th>fri</th>
+                  <th>sat</th>
+                  <th>sun</th>
+                </tr>
+              </thead>
+              <tbody class="calendar-body">
+                <tr>
+                  <td class="prev-next-month">24</td>
+                  <td class="prev-next-month">25</td>
+                  <td class="prev-next-month">26</td>
+                  <td class="prev-next-month">27</td>
+                  <td class="prev-next-month">28</td>
+                  <td><a href="#">1</a></td>
+                  <td><a href="#">2</a></td>
+                </tr>
+                <tr>
+                  <td><a href="#">3</a></td>
+                  <td><a href="#">4</a></td>
+                  <td><a href="#">5</a></td>
+                  <td><a href="#">6</a></td>
+                  <td><a href="#">7</a></td>
+                  <td><a href="#">8</a></td>
+                  <td><a href="#">9</a></td>
+                </tr>
+                <tr>
+                  <td><a href="#">10</a></td>
+                  <td><a href="#">11</a></td>
+                  <td><a href="#" class="cell-border">12</a></td>
+                  <td><a href="#">13</a></td>
+                  <td><a href="#" class="cell-background">14</a></td>
+                  <td><a href="#">15</a></td>
+                  <td><a href="#">16</a></td>
+                </tr>
+                <tr>
+                  <td><a href="#">17</a></td>
+                  <td><a href="#">18</a></td>
+                  <td><a href="#">19</a></td>
+                  <td><a href="#">20</a></td>
+                  <td><a href="#">21</a></td>
+                  <td><a href="#">22</a></td>
+                  <td><a href="#">23</a></td>
+                </tr>
+                <tr>
+                  <td><a href="#">24</a></td>
+                  <td><a href="#">25</a></td>
+                  <td><a href="#">26</a></td>
+                  <td><a href="#">27</a></td>
+                  <td><a href="#">28</a></td>
+                  <td class="prev-next-month">1</td>
+                  <td class="prev-next-month">2</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- Task details end -->
       </main>
 
     </div> <!-- .wrapper -->
 
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function(){
 
-        $(".overlay-button").click(function(){
-          $(".layer").toggleClass("fixed-image");
-        });
-
-      });
-    </script>
   </body>
 </html>

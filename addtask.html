@@ -8,53 +8,46 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
 
-    <style>
-    .fixed-image {
-      position: absolute;
-      top: 30px;
-      right: 0;
-      left: 0;
-      height: 2000px;
-      opacity: .5;
-      z-index: 1000;
-      background: url(img/todolist.png) top center no-repeat;
-    }
-
-    .overlay-button {
-      position: fixed;
-      left: 20px;
-      bottom: 20px;
-      opacity: .8;
-      color: #000;
-      font-size: 12px;
-      z-index: 1001;
-    }
-
-    </style>
-  </head>
-
-  <body>
-
-  <!-- elements for comparing -->
-  <div class="layer">
-  </div>
-  <button type="button" name="button" class="overlay-button">On/Off</button>
-  <!-- end elements for comparing -->
 
     <div class="wrapper">
 
-      <header class="title-bar">
+      <header class="title-bar lightbox-active">
         <div class="title-bar-buttons">
-          <a href="#"></a>
+          <a href="index.html"></a>
           <a href="#"></a>
           <a href="#"></a>
         </div>
         <h3 class="title-all-tasks">All tasks</h3>
         <div class="title-aux-buttons">
           <a href="search.html"><span class="fa fa-search fa-lg"></span></a>
-          <a href="addtask.html"><span class="fa fa-plus-circle fa-lg"></span></a>
+          <a href="index.html"><span class="fa fa-times-circle-o fa-lg close-button"></span></a>
+        </div>
+
+        <div class="add-task-bar">
+          <div class="add-new-task clearfix">
+            <h2>Add a new task</h2>
+            <div class="add-task-icons">
+              <a href="#"><span class="fa fa-star-o fa-lg"></span></a>
+              <a href="#"><span class="fa fa-calendar fa-lg"></span></a>
+              <a href="#" class="selected-arrow-position selected-arrow selected-arrow-add-task"><span class="fa fa-circle fa-lg category-button"></span></a>
+            </div>
+          </div>
+          <div class="add-new-task clearfix">
+            <p>
+              Select a category
+            </p>
+            <div class="select-category-icons">
+              <a href="#" class="home-button"><span class="centered-content fa fa-home"></span></a>
+              <a href="#" class="briefcase-button checked"><span class="centered-content fa fa-briefcase"></span></a>
+              <a href="#" class="screen-button checked"><span class="centered-content fa fa-desktop"></span></a>
+              <a href="#" class="users-button checked"><span class="centered-content fa fa-users"></span></a>
+            </div>
+          </div>
         </div>
       </header>
+
+      <div class="lightbox-dark">
+      </div>
 
       <main class="main-section">
         <nav class="main-nav">
@@ -144,15 +137,5 @@
 
     </div> <!-- .wrapper -->
 
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function(){
-
-        $(".overlay-button").click(function(){
-          $(".layer").toggleClass("fixed-image");
-        });
-
-      });
-    </script>
   </body>
 </html>

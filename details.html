@@ -7,45 +7,15 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
-
-    <style>
-    .fixed-image {
-      position: absolute;
-      top: 30px;
-      right: 0;
-      left: 0;
-      height: 2000px;
-      opacity: .5;
-      z-index: 1000;
-      background: url(img/todolist.png) top center no-repeat;
-    }
-
-    .overlay-button {
-      position: fixed;
-      left: 20px;
-      bottom: 20px;
-      opacity: .8;
-      color: #000;
-      font-size: 12px;
-      z-index: 1001;
-    }
-
-    </style>
   </head>
 
   <body>
 
-  <!-- elements for comparing -->
-  <div class="layer">
-  </div>
-  <button type="button" name="button" class="overlay-button">On/Off</button>
-  <!-- end elements for comparing -->
-
     <div class="wrapper">
 
-      <header class="title-bar">
+      <header class="title-bar lightbox-active">
         <div class="title-bar-buttons">
-          <a href="#"></a>
+          <a href="index.html"></a>
           <a href="#"></a>
           <a href="#"></a>
         </div>
@@ -55,6 +25,9 @@
           <a href="addtask.html"><span class="fa fa-plus-circle fa-lg"></span></a>
         </div>
       </header>
+
+      <div class="lightbox-dark">
+      </div>
 
       <main class="main-section">
         <nav class="main-nav">
@@ -140,19 +113,67 @@
           </div>
 
         </section>
+
+        <div class="task-details lightbox-active">
+          <div class="task-box task-line teal-line upper-content">
+            <div class="checkbox empty">
+              <span class="centered-content fa fa-circle-thin fa-lg"></span>
+            </div>
+            <div class="task-content task-content-details">
+              <h2>Buy a new toothbrush</h2>
+              <a href="#" class="favourite"><span class="fa fa-star-o"></span></a>
+            </div>
+          </div>
+          <div class="task-box-undone">
+            <a href="duedate.html">
+              <div class="checkbox empty">
+                <span class="centered-content fa fa-calendar fa-lg"></span>
+              </div>
+              <div class="task-content task-content-details-small">
+                <p>Set a due date</p>
+              </div>
+            </a>
+          </div>
+          <div class="task-box-undone">
+            <a href="#">
+              <div class="checkbox empty">
+                <span class="centered-content fa fa-clock-o fa-lg"></span>
+              </div>
+              <div class="task-content task-content-details-small">
+                <p>Set a reminder</p>
+              </div>
+            </a>
+          </div>
+          <div class="task-box-undone">
+            <a href="#">
+              <div class="checkbox empty">
+                <span class="centered-content teal-content fa fa-circle fa-lg"></span>
+              </div>
+              <div class="task-content task-content-details-small">
+                <p>Work</p>
+              </div>
+            </a>
+          </div>
+          <div class="task-box-undone">
+            <a href="#">
+              <div class="checkbox empty">
+                <span class="centered-content fa fa-edit fa-lg"></span>
+              </div>
+              <div class="task-content task-content-details-small">
+                <p>Add note</p>
+              </div>
+            </a>
+          </div>
+          <div class="paperclip">
+            <a href="#"><span class="fa fa-paperclip fa-lg"></span></a>
+          </div>
+        </div>
+
       </main>
 
     </div> <!-- .wrapper -->
 
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function(){
 
-        $(".overlay-button").click(function(){
-          $(".layer").toggleClass("fixed-image");
-        });
-
-      });
-    </script>
   </body>
 </html>
