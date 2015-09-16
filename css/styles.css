@@ -140,7 +140,7 @@ body:before {
   top: 100%;
   left: 0;
   right: 0;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 10;
   padding: 30px;
   text-align: left;
@@ -192,7 +192,7 @@ body:before {
 }
 
 .add-new-task:last-child {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .add-new-task a {
@@ -243,7 +243,7 @@ body:before {
   top: 49px;
   border-left: 11px solid transparent;
   border-right: 11px solid transparent;
-  border-bottom: 13px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 13px solid rgba(0, 0, 0, 0.4);
 }
 
 /**********************************
@@ -275,27 +275,27 @@ body:before {
   color: rgba(255, 255, 255, 0.8);
 }
 
-.tasks-button {
+.gray-background {
   background-color: #55566e;
 }
 
-.home-button {
+.red-background {
   background-color: #ff5f65;
 }
 
-.briefcase-button {
+.yellow-background {
   background-color: #fdcd63;
 }
 
-.screen-button {
+.purple-background {
   background-color: #d575f8;
 }
 
-.users-button {
+.teal-background {
   background-color: #00eeb8;
 }
 
-.gear-button {
+.light-gray-background {
   background-color: #343f46;
 }
 
@@ -404,7 +404,8 @@ body:before {
   background-color: #4c4b62;
 }
 
-.checkbox, .task-content {
+.checkbox,
+.task-content {
   display: table-cell;
 }
 
@@ -510,7 +511,7 @@ body:before {
   border-right: 11px solid #ecedf7;
 }
 
-.calendar-body {
+.calendar-body { /* Hack to make top border gray colored and rendered properly */
   border-bottom: 11px solid #fff;
   border-left: 11px solid #fff;
   border-right: 11px solid #fff;
