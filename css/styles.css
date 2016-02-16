@@ -1,0 +1,839 @@
+/*
+      * Styles for todolist page
+*****************************************************************************/
+
+* {
+  box-sizing: border-box;
+}
+
+body{
+  position: fixed;
+  left: 0;
+  right: 0;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  z-index: 0;
+}
+
+body:before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: url(../img/berries.jpg) no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+
+  -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+      -ms-filter: blur(10px);
+        -o-filter: blur(10px);
+          filter: blur(10px);
+}
+
+/*
+    * General reusable classes
+*****************************************************************************/
+
+.wrapper {
+  width: 600px;
+  margin: 30px auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.col-2 {
+  width: 50%;
+  float: left;
+}
+
+.centered-content {
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.main-section {
+  position: relative;
+  min-height: 517px;
+}
+
+.main-section::before {
+  position: absolute;
+  content: '';
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.task-link {
+  text-decoration: none;
+  color: #fff;
+  overflow-wrap: break-word;
+}
+
+/* Hide form elements */
+
+.select-category-icons input,
+.favorite-checkbox,
+.custom-checkbox {
+  -webkit-appearance: none;
+    -moz-appearance: none;
+      appearance: none;
+}
+
+
+/*
+          * Tiltle bar
+*****************************************************************************/
+
+.title-bar {
+  background-color: rgba(255, 255, 255, 0.3);
+  text-align: center;
+  position: relative;
+}
+
+.title-bar-buttons {
+  float: left;
+  margin: 18px;
+}
+
+.title-bar-buttons a {
+  width: 11px;
+  height: 11px;
+  float: left;
+  margin: 0 2px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+}
+
+.title-all-tasks {
+  display: inline-block;
+  margin: 35px 0 10px 0;
+  font-size: 18px;
+}
+
+.title-aux-buttons {
+  float: right;
+  margin: 35px 16px 10px 0;
+}
+
+.title-aux-buttons a {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 8px;
+}
+
+/*
+        * Top Bars in the header (Search & Add New Task)
+*****************************************************************************/
+
+.top-bar {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 101;
+  text-align: left;
+  overflow: hidden;
+  -webkit-transition: max-height .3s;
+          transition: max-height .3s;
+}
+
+.top-bar-input {
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  color: #fff;
+  font-size: 30px;
+}
+
+.top-bar-input:focus {
+  outline: 0;
+}
+
+/*
+        * Search bar
+*****************************************************************************/
+
+.search-bar {
+  max-height: 103px;
+}
+
+.search-wrap {
+  padding: 30px;
+}
+
+.search-bar .top-bar-input {
+  width: 87%;
+  margin: 0 0 0 15px;
+}
+
+.search-btn {
+  border: none;
+  background: transparent;
+}
+
+.search-bar span {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+
+/*
+        * Add task bar
+*****************************************************************************/
+
+.add-task-bar {
+  padding: 0;
+  max-height: 213px;
+}
+
+.add-new-task {
+  color: rgba(255, 255, 255, 0.8);
+  vertical-align: middle;
+  padding: 30px;
+}
+
+.add-new-task:last-child {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.add-new-task a,
+.favorite-btn {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.add-new-task .top-bar-input {
+  float: left;
+  margin: 0;
+  width: 75%;
+}
+
+.add-new-task p {
+  float: left;
+  margin: 10px 0;
+}
+
+.add-task-bar label {
+  cursor: pointer;
+}
+
+.select-category-icons {
+  float: right;
+}
+
+.select-category-btn {
+  padding: 23px;
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.add-task-icons {
+  margin: 10px 0;
+}
+
+.add-task-icons a {
+  margin: 0 8px;
+}
+
+.category-indicator {
+  display: inline-block;
+  position: relative;
+  top: 3px;
+  width: 17px;
+  height: 17px;
+  margin: 0 8px;
+  border-radius: 50%;
+}
+
+.category-indicator::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 47px;
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  border-bottom: 13px solid rgba(0, 0, 0, 0.4);
+}
+
+.add-task-btn {
+  -webkit-transition: -webkit-transform .3s;
+          transition: transform .3s;
+}
+
+.close-task-button {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.selected-arrow-add-task::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 50px;
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  border-bottom: 13px solid rgba(0, 0, 0, 0.4);
+}
+
+.favorite-btn {
+  margin: 0 8px;
+}
+
+
+/*
+          * Categories styles
+*****************************************************************************/
+
+.category-all-bg {
+  background-color: #55566e;
+}
+
+.category-home-bg {
+  background-color: #ff5f65;
+}
+
+.category-work-bg {
+  background-color: #fdcd63;
+}
+
+.category-study-bg {
+  background-color: #d575f8;
+}
+
+.category-family-bg {
+  background-color: #00eeb8;
+}
+
+/*.light-gray-background {
+  background-color: #343f46;
+}*/
+
+.home-category::after {
+  background-color: #ff5f65;
+}
+
+.work-category::after {
+  background-color: #fdcd63;
+}
+
+.family-category::after {
+  background-color: #00eeb8;
+}
+
+.study-category::after {
+  background-color: #d575f8;
+}
+
+
+/*
+        * Navigation
+*****************************************************************************/
+
+.main-nav {
+  width: 70px;
+  min-height: 517px;
+  float: left;
+  background-color: rgba(52, 63, 70, 0.5);
+  position: relative;
+}
+
+.main-nav a {
+  text-decoration: none;
+  position: relative;
+  height: 70px;
+  display: block;
+}
+
+.main-nav a:last-child {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.nav-icon {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+
+/*
+    * Main section, task boxes
+*****************************************************************************/
+
+.tasks-wrapper {
+  width: 530px;
+  height: 517px;
+  float: left;
+  position: relative;
+  background-color: rgba(85, 86, 110, 0.85);
+}
+
+.tasks-wrapper-scroll {
+  overflow-y: scroll;
+}
+
+.tasks-grid {
+  -webkit-column-count: 2;
+     -moz-column-count: 2;
+          column-count: 2;
+  -webkit-column-gap: 0;
+     -moz-column-gap: 0;
+          column-gap: 0;
+}
+
+.task-box {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid #777;
+  -webkit-column-break-inside: avoid;
+     page-break-inside: avoid;
+          break-inside: avoid-column;
+}
+
+.task-box::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  right: 0;
+  top: 0;
+}
+
+.task-box-full {
+  -webkit-column-span: all;
+     -moz-column-span: all;
+          column-span: all;
+}
+
+.task-box-solid {
+  background-color: rgba(85, 86, 110, 1);
+}
+
+.task-box label,
+.task-box span {
+  color: #9596a4;
+}
+
+.task-box-full .task-name {
+  clear:both;
+  font-size: 44px;
+  margin: 35px 0 0;
+}
+
+.task-name {
+  margin: 23px 0 0;
+  line-height: 1.5;
+}
+
+.location-and-date {
+  color: #9596a4;
+  float: left;
+  font-weight: bold;
+  font-size: 12px;
+  margin: 5px;
+}
+
+.location-and-date-small {
+  margin: 0;
+  font-size: 10px;
+}
+
+.favourite {
+  float: right;
+}
+
+.task-content {
+  padding: 25px 35px 15px 25px;
+  position: relative;
+}
+
+.task-content-small {
+  padding: 20px 35px 15px 30px;
+}
+
+.checkbox-wrap {
+  width: 45px;
+  position: relative;
+  background-color: #4c4b62;
+}
+
+.complete {
+  display: inline-block;
+  height: 20px;
+  width: 18px;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: 20px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.complete::before {
+  position: absolute;
+  content: '\f1db';
+}
+
+.custom-checkbox:checked + .complete::before {
+  content: '\f058';
+}
+
+.task-content {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 65%;
+      -ms-flex: 1 0 65%;
+          flex: 1 0 65%;
+}
+
+.checked {
+  -webkit-filter: grayscale(.5);
+  filter: grayscale(.5);
+  opacity: .75;
+  color: #7e8387;
+}
+
+.clean-room {
+  border-left: 1px solid #ff5f65;
+}
+
+
+/*
+    * Task details
+*****************************************************************************/
+
+.task-details {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  height: 517px;
+  max-width: 300px;
+  opacity: 1;
+  background-color: #55566e;
+  -webkit-transition: max-width .3s, opacity .6s;
+    transition: max-width .3s, opacity .6s;
+  z-index: 101;
+}
+
+.task-details .task-box::after {
+  height: 10px;
+  width: 100%;
+}
+
+.task-details .checkbox-wrap {
+  background: none;
+}
+
+.set-due-date {
+  position: relative;
+  cursor: pointer;
+}
+
+.paperclip {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: #9596a4;
+}
+
+.task-content-details {
+  padding: 20px 20px 20px 10px;
+}
+
+.task-content-details-small {
+  padding: 0 0 0 10px;
+}
+
+.task-details-name {
+  width: 60%;
+  margin: 0;
+  float: left;
+}
+
+.details-favorite {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.task-category {
+  text-transform: capitalize;
+}
+
+.category-icon {
+  position: absolute;
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+}
+
+.task-option {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  color: #9596a4;
+  border-top: 1px solid #9596a4;
+}
+
+.task-icon-wrap {
+  position: relative;
+  width: 45px;
+}
+
+.task-icon {
+  display: inline-block;
+  height: 20px;
+  width: 18px;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: 20px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.task-option p {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.add-note {
+  margin: 10px 0;
+  border: none;
+  background: transparent;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.add-note::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color: #9596a4;
+}
+
+.add-note:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #9596a4;
+  opacity:  1;
+}
+
+.add-note::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #9596a4;
+  opacity:  1;
+}
+
+.add-note:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #9596a4;
+}
+
+.add-note:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+  color: #9596a4;
+}
+
+
+/*
+    * Due date calendar
+*****************************************************************************/
+
+.task-calendar {
+  position: absolute;
+  right: 100%;
+  top: 10px;
+  background-color: #fff;
+  color: #4f5064;
+  text-align: center;
+}
+
+.prev-next-month {
+  color: #cfcfd3;
+}
+
+.calendar-controls,
+.calendar-header {
+  background-color: #ecedf7;
+  padding: 10px;
+}
+
+.calendar-controls span {
+  margin: 0 5px;
+  font-weight: bold;
+}
+
+.calendar-header {
+  border-left: 11px solid #ecedf7;
+  border-right: 11px solid #ecedf7;
+}
+
+.calendar-body { /* Hack to make top border gray colored and rendered properly */
+  border-bottom: 11px solid #fff;
+  border-left: 11px solid #fff;
+  border-right: 11px solid #fff;
+  border-top: 12px solid #fff;
+}
+
+.calendar {
+  font-size: 11px;
+}
+
+.calendar td {
+  padding: 7px;
+}
+
+.calendar th {
+  text-transform: uppercase;
+  padding: 0 5px 10px 5px;
+  font-size: 9px;
+}
+
+.task-calendar a {
+  text-decoration: none;
+}
+
+.cell-border,
+.cell-background {
+  border-radius: 50%;
+  padding: 3px;
+}
+
+.cell-border {
+  border: 1px solid red;
+}
+
+.cell-background {
+  background-color: #dce0e4;
+}
+
+.selected-arrow-details::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 0;
+  top: 45%;
+  border-top: 5px solid transparent;
+	border-left: 6px solid #fff;
+	border-bottom: 5px solid transparent;
+}
+
+/*
+    * Custom scrollbar
+*****************************************************************************/
+
+.tasks-wrapper::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+	background-color: #f5f5f5;
+}
+
+.tasks-wrapper::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #9e9e9e;
+}
+
+.tasks-wrapper::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+	background-color: #555;
+}
+
+
+/*
+    * State styles
+*****************************************************************************/
+
+.is-hidden {
+  display: none;
+}
+
+.is-hidden-bar {
+  max-height: 0;
+}
+
+.is-active-bar {
+  display: block;
+}
+
+.is-hidden-property-bar {
+  max-width: 0;
+  opacity: 0;
+}
+
+.is-lightbox-active {
+  z-index: 100;
+}
+
+.is-lightbox-active::before {
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+}
+
+.is-selected-category:before {
+  content: '';
+  position: absolute;
+  top: 35%;
+  right: 0;
+  border-top: 10px solid transparent;
+  border-right: 11px solid rgba(0, 0, 0, .2);
+  border-bottom: 10px solid transparent;
+}
+
+.is-completed {
+  opacity: .5;
+}
+
+.is-scrollable {
+  overflow-y: scroll;
+}
+
+.is-active-task-detail {
+  background-color: #4c4b62;
+}
+
+/*
+    * Debug/Pixel perfect CSS
+*****************************************************************************/
+
+.fixed-image {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  left: 0;
+  height: 2000px;
+  opacity: .5;
+  z-index: 1000;
+  background: url(../img/todolist.png) top center no-repeat;
+}
+
+.overlay-button {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  opacity: .8;
+  color: #000;
+  font-size: 12px;
+  z-index: 1001;
+}
