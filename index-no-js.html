@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="https://github.com/nikitahl">
+    <title>Todolist</title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" >
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+
+  <body>
+
+  <!-- elements for comparing -->
+  <div class="layer">
+  </div>
+  <button type="button" name="button" class="overlay-button">On/Off</button>
+  <!-- end elements for comparing -->
+
+    <div class="wrapper">
+
+      <header class="title-bar">
+        <div class="title-bar-buttons">
+          <a href="#"></a>
+          <a href="#"></a>
+          <a href="#"></a>
+        </div>
+        <h3 class="title-all-tasks">All tasks</h3>
+        <div class="title-aux-buttons">
+          <a href="search.html"><span class="fa fa-search fa-lg"></span></a>
+          <a href="addtask.html"><span class="fa fa-plus-circle fa-lg"></span></a>
+        </div>
+      </header>
+
+      <main class="main-section">
+        <nav class="main-nav">
+          <a href="#" class="gray-background selected-arrow-position selected-arrow selected-arrow-menu-btn"><span class="centered-content nav-icon fa fa-inbox fa-lg"></span></a>
+          <a href="#" class="red-background"><span class="centered-content nav-icon fa fa-home fa-lg"></span></a>
+          <a href="#" class="yellow-background"><span class="centered-content nav-icon fa fa-briefcase fa-lg"></span></a>
+          <a href="#" class="purple-background"><span class="centered-content nav-icon fa fa-desktop fa-lg"></span></a>
+          <a href="#" class="teal-background"><span class="centered-content nav-icon fa fa-users fa-lg"></span></a>
+          <a href="#"><span class="centered-content nav-icon fa fa-cog fa-lg"></span></a>
+        </nav>
+
+        <section class="tasks-wrapper">
+
+          <div class="task-box task-box-main task-line task-box-solid">
+            <div class="checkbox checkbox-colored empty">
+              <span class="centered-content fa fa-circle-thin fa-lg"></span>
+            </div>
+            <div class="task-content">
+              <p class="location-and-date"><a href="#"><span class="fa fa-map-marker fa-lg"></span></a> At Tesco | Next monday</p><a href="#" class="favourite"><span class="fa fa-star"></span></a>
+              <h1><a href="details.html" class="task-link">Buy a new better toothbrush</a></h1>
+            </div>
+          </div>
+
+          <div class="col-2">
+            <div class="task-box task-box-undone task-line yellow-line task-box-solid">
+              <div class="checkbox checkbox-colored empty">
+                <span class="centered-content fa fa-circle-thin fa-lg"></span>
+              </div>
+              <div class="task-content task-content-small clean-room">
+                <p class="location-and-date location-and-date-small">Tomorrow</p>
+                <p class="task-name"><a href="#" class="task-link">Clean my room</a></p>
+              </div>
+            </div>
+            <div class="task-box task-box-undone task-line purple-line task-box-solid">
+              <div class="checkbox checkbox-colored empty">
+                <span class="centered-content fa fa-circle-thin fa-lg"></span>
+              </div>
+              <div class="task-content task-content-small">
+                <p class="location-and-date location-and-date-small">18. September 2013</p>
+                <p class="task-name"><a href="#" class="task-link">Do a homework from ipsum dolor amet, consectetur adipiscing</a></p>
+              </div>
+            </div>
+            <div class="task-box checked task-line">
+              <div class="checkbox">
+                <span class="centered-content fa fa-check-circle fa-lg"></span>
+              </div>
+              <div class="task-content task-content-small">
+                <p class="location-and-date location-and-date-small">Yesterday</p>
+                <p class="task-name">Buy a milk</p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-2">
+            <div class="task-box task-box-undone task-line teal-line task-box-solid">
+              <div class="checkbox checkbox-colored empty">
+                <span class="centered-content fa fa-circle-thin fa-lg"></span>
+              </div>
+              <div class="task-content task-content-small">
+                <p class="location-and-date location-and-date-small">14. September 2013</p>
+                <p class="task-name"><a href="#" class="task-link">Clean the house and mauris pretium purus id sapien consectetur</a></p>
+              </div>
+            </div>
+            <div class="task-box checked task-line purple-line">
+              <div class="checkbox">
+                <span class="centered-content fa fa-check-circle fa-lg"></span>
+              </div>
+              <div class="task-content task-content-small">
+                <p class="location-and-date location-and-date-small">5. October 2013</p>
+                <p class="task-name">Gift to Petra</p>
+              </div>
+            </div>
+            <div class="task-box checked task-box-undone task-line yellow-line">
+              <div class="checkbox">
+                <span class="centered-content fa fa-check-circle fa-lg"></span>
+              </div>
+              <div class="task-content task-content-small">
+                <p class="location-and-date location-and-date-small">Last week</p>
+                <p class="task-name">Call to Jakub Antalik</p>
+              </div>
+            </div>
+          </div>
+
+        </section>
+      </main>
+
+    </div> <!-- .wrapper -->
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+        $(".overlay-button").click(function(){
+          $(".layer").toggleClass("fixed-image");
+        });
+
+      });
+    </script>
+  </body>
+</html>

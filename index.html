@@ -1,46 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Todolist | Webskola project</title>
     <meta charset="utf-8">
+    <meta name="description" content="Todolist project for Webskola. App made with plain HTML, CSS and Javascript.">
     <meta name="author" content="https://github.com/nikitahl">
-    <title>Todolist</title>
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" >
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
-
-    <style>
-    .fixed-image {
-      position: absolute;
-      top: 30px;
-      right: 0;
-      left: 0;
-      height: 2000px;
-      opacity: .5;
-      z-index: 1000;
-      background: url(img/todolist.png) top center no-repeat;
-    }
-
-    .overlay-button {
-      position: fixed;
-      left: 20px;
-      bottom: 20px;
-      opacity: .8;
-      color: #000;
-      font-size: 12px;
-      z-index: 1001;
-    }
-
-    </style>
   </head>
-
   <body>
 
-  <!-- elements for comparing -->
-  <div class="layer">
-  </div>
-  <button type="button" name="button" class="overlay-button">On/Off</button>
-  <!-- end elements for comparing -->
+    <!-- elements for comparing -->
+    <div class="layer"></div>
+    <button type="button" name="button" class="overlay-button">On/Off</button>
+    <!-- end elements for comparing -->
 
     <div class="wrapper">
 
@@ -49,104 +24,213 @@
           <a href="#"></a>
           <a href="#"></a>
           <a href="#"></a>
-        </div>
+        </div><!-- .title-bar-buttons -->
         <h3 class="title-all-tasks">All tasks</h3>
         <div class="title-aux-buttons">
-          <a href="search.html"><span class="fa fa-search fa-lg"></span></a>
-          <a href="addtask.html"><span class="fa fa-plus-circle fa-lg"></span></a>
-        </div>
-      </header>
+          <a id="search" class="title-aux-btn" href="#"><span class="fa fa-search fa-lg"></span></a>
+          <a id="add-task" class="title-aux-btn" href="#"><span class="fa fa-plus-circle fa-lg add-task-btn"></span></a>
+        </div><!-- .title-all-tasks -->
 
-      <main class="main-section">
+        <!-- Search Bar -->
+        <div class="top-bar search-bar is-hidden-bar">
+          <form class="search-wrap">
+            <button class="search-btn" type="button" title="Search">
+              <span class="fa fa-search fa-2x"></span>
+            </button>
+            <input class="top-bar-input search-bar-input" type="search " name="search">
+          </form>
+        </div><!-- .search-bar -->
+
+        <!-- Add New Task Bar -->
+        <form class="top-bar add-task-bar is-hidden-bar">
+          <div class="add-new-task clearfix">
+            <input class="top-bar-input" id="add-task-input" type="text" name="addtask" placeholder="Type and hit Enter to add..." maxlength="100" title="Maximum task length is 100 characters">
+            <div class="add-task-icons">
+              <input class="favorite-checkbox" id="favorite" type="checkbox">
+              <label class="favorite-btn" for="favorite" title="Add to Favorites">
+                <span class="fa fa-star-o fa-lg fav-star"></span>
+              </label>
+              <a href="#">
+                <span class="fa fa-calendar fa-lg"></span>
+              </a>
+              <span class="category-indicator"></span>
+            </div><!-- .add-task-icons -->
+          </div><!-- .add-new-task -->
+          <div class="add-new-task clearfix">
+            <p>Select a category</p>
+            <div class="select-category-icons">
+              <label class="select-category-btn category-home-bg" for="home-category" title="Home category">
+                <span class="centered-content fa fa-home"></span>
+              </label>
+              <input class="category-checker" id="home-category" type="radio" name="category" value="home" checked>
+
+              <label class="select-category-btn category-work-bg" for="work-category" title="Work category">
+                <span class="centered-content fa fa-briefcase"></span>
+              </label>
+              <input class="category-checker" id="work-category" type="radio" name="category" value="work">
+
+              <label class="select-category-btn category-study-bg" for="study-category" title="Study category">
+                <span class="centered-content fa fa-desktop"></span>
+              </label>
+              <input class="category-checker" id="study-category" type="radio" name="category" value="study">
+
+              <label class="select-category-btn category-family-bg" for="family-category" title="Family category">
+                <span class="centered-content fa fa-users"></span>
+              </label>
+              <input class="category-checker" id="family-category" type="radio" name="category" value="family">
+            </div><!-- .select-category-icons -->
+          </div><!-- .add-new-task -->
+        </form><!-- .add-task-bar -->
+      </header><!-- .title-bar -->
+
+      <section class="main-section">
         <nav class="main-nav">
-          <a href="#" class="gray-background selected-arrow-position selected-arrow selected-arrow-menu-btn"><span class="centered-content nav-icon fa fa-inbox fa-lg"></span></a>
-          <a href="#" class="red-background"><span class="centered-content nav-icon fa fa-home fa-lg"></span></a>
-          <a href="#" class="yellow-background"><span class="centered-content nav-icon fa fa-briefcase fa-lg"></span></a>
-          <a href="#" class="purple-background"><span class="centered-content nav-icon fa fa-desktop fa-lg"></span></a>
-          <a href="#" class="teal-background"><span class="centered-content nav-icon fa fa-users fa-lg"></span></a>
-          <a href="#"><span class="centered-content nav-icon fa fa-cog fa-lg"></span></a>
-        </nav>
+          <a href="#" id="all" class="category-btn category-all-bg">
+            <span class="centered-content nav-icon fa fa-inbox fa-lg"></span>
+          </a>
+          <a href="#" id="home" class="category-btn category-home-bg">
+            <span class="centered-content nav-icon fa fa-home fa-lg"></span>
+          </a>
+          <a href="#" id="work" class="category-btn category-work-bg">
+            <span class="centered-content nav-icon fa fa-briefcase fa-lg"></span>
+          </a>
+          <a href="#" id="study" class="category-btn category-study-bg">
+            <span class="centered-content nav-icon fa fa-desktop fa-lg"></span>
+          </a>
+          <a href="#" id="family" class="category-btn category-family-bg">
+            <span class="centered-content nav-icon fa fa-users fa-lg"></span>
+          </a>
+          <a href="#">
+            <span class="centered-content nav-icon fa fa-cog fa-lg"></span>
+          </a>
+        </nav><!-- .main-nav -->
 
-        <section class="tasks-wrapper">
-
-          <div class="task-box task-box-main task-line task-box-solid">
-            <div class="checkbox checkbox-colored empty">
-              <span class="centered-content fa fa-circle-thin fa-lg"></span>
-            </div>
-            <div class="task-content">
-              <p class="location-and-date"><a href="#"><span class="fa fa-map-marker fa-lg"></span></a> At Tesco | Next monday</p><a href="#" class="favourite"><span class="fa fa-star"></span></a>
-              <h1><a href="details.html" class="task-link">Buy a new better toothbrush</a></h1>
-            </div>
+        <main class="tasks-wrapper">
+          <div class="tasks-grid">
           </div>
+        </main><!-- .task-wrapper -->
+      </section><!-- .main-section -->
 
-          <div class="col-2">
-            <div class="task-box task-box-undone task-line yellow-line task-box-solid">
-              <div class="checkbox checkbox-colored empty">
-                <span class="centered-content fa fa-circle-thin fa-lg"></span>
-              </div>
-              <div class="task-content task-content-small clean-room">
-                <p class="location-and-date location-and-date-small">Tomorrow</p>
-                <p class="task-name"><a href="#" class="task-link">Clean my room</a></p>
-              </div>
-            </div>
-            <div class="task-box task-box-undone task-line purple-line task-box-solid">
-              <div class="checkbox checkbox-colored empty">
-                <span class="centered-content fa fa-circle-thin fa-lg"></span>
-              </div>
-              <div class="task-content task-content-small">
-                <p class="location-and-date location-and-date-small">18. September 2013</p>
-                <p class="task-name"><a href="#" class="task-link">Do a homework from ipsum dolor amet, consectetur adipiscing</a></p>
-              </div>
-            </div>
-            <div class="task-box checked task-line">
-              <div class="checkbox">
-                <span class="centered-content fa fa-check-circle fa-lg"></span>
-              </div>
-              <div class="task-content task-content-small">
-                <p class="location-and-date location-and-date-small">Yesterday</p>
-                <p class="task-name">Buy a milk</p>
-              </div>
-            </div>
+      <div class="task-details is-hidden-property-bar">
+        <div class="task-box details-task-box">
+          <div class="checkbox-wrap">
+            <label class="complete centered-content" for=""></label>
           </div>
-
-
-          <div class="col-2">
-            <div class="task-box task-box-undone task-line teal-line task-box-solid">
-              <div class="checkbox checkbox-colored empty">
-                <span class="centered-content fa fa-circle-thin fa-lg"></span>
-              </div>
-              <div class="task-content task-content-small">
-                <p class="location-and-date location-and-date-small">14. September 2013</p>
-                <p class="task-name"><a href="#" class="task-link">Clean the house and mauris pretium purus id sapien consectetur</a></p>
-              </div>
-            </div>
-            <div class="task-box checked task-line purple-line">
-              <div class="checkbox">
-                <span class="centered-content fa fa-check-circle fa-lg"></span>
-              </div>
-              <div class="task-content task-content-small">
-                <p class="location-and-date location-and-date-small">5. October 2013</p>
-                <p class="task-name">Gift to Petra</p>
-              </div>
-            </div>
-            <div class="task-box checked task-box-undone task-line yellow-line">
-              <div class="checkbox">
-                <span class="centered-content fa fa-check-circle fa-lg"></span>
-              </div>
-              <div class="task-content task-content-small">
-                <p class="location-and-date location-and-date-small">Last week</p>
-                <p class="task-name">Call to Jakub Antalik</p>
-              </div>
-            </div>
+          <div class="task-content task-content-details">
+            <h2 class="task-details-name">...</h2>
+            <input class="details-favorite" id="details-favorite" type="checkbox" >
+            <label class="favourite favorite-btn" for="details-favorite" title="Add to Favorites">
+                <span class="details-fav-star fa fa-lg"></span>
+            </label>
           </div>
-
-        </section>
-      </main>
-
+        </div>
+        <div class="task-option set-due-date">
+          <div class="task-icon-wrap">
+            <span class="centered-content task-icon fa fa-calendar fa-lg"></span>
+          </div>
+          <div class="task-content task-content-details-small">
+            <p>Set a due date</p>
+          </div>
+        </div>
+        <div class="task-option">
+          <div class="task-icon-wrap">
+            <span class="centered-content task-icon fa fa-clock-o fa-lg"></span>
+          </div>
+          <div class="task-content task-content-details-small">
+            <p>Set a reminder</p>
+          </div>
+        </div>
+        <div class="task-option">
+          <div class="task-icon-wrap">
+            <span class="centered-content category-icon"></span>
+          </div>
+          <div class="task-content task-content-details-small">
+            <p class="task-category">...</p>
+          </div>
+        </div>
+        <div class="task-option">
+          <div class="task-icon-wrap">
+            <span class="centered-content task-icon fa fa-edit fa-lg"></span>
+          </div>
+          <div class="task-content task-content-details-small">
+            <input class="add-note" type="text" placeholder="Add note">
+          </div>
+        </div>
+        <div class="paperclip">
+          <span class="fa fa-paperclip fa-lg"></span>
+        </div>
+        <div class="task-calendar is-hidden">
+            <div class="calendar-controls">
+              <span><a href="#">&lt;</a></span>
+              <span>September</span>
+              <span><a href="#">&gt;</a></span>
+            </div>
+            <table class="calendar">
+              <thead class="calendar-header">
+                <tr>
+                  <th>mon</th>
+                  <th>tue</th>
+                  <th>wed</th>
+                  <th>thu</th>
+                  <th>fri</th>
+                  <th>sat</th>
+                  <th>sun</th>
+                </tr>
+              </thead>
+              <tbody class="calendar-body">
+                <tr>
+                  <td class="prev-next-month">24</td>
+                  <td class="prev-next-month">25</td>
+                  <td class="prev-next-month">26</td>
+                  <td class="prev-next-month">27</td>
+                  <td class="prev-next-month">28</td>
+                  <td><a href="#">1</a></td>
+                  <td><a href="#">2</a></td>
+                </tr>
+                <tr>
+                  <td><a href="#">3</a></td>
+                  <td><a href="#">4</a></td>
+                  <td><a href="#">5</a></td>
+                  <td><a href="#">6</a></td>
+                  <td><a href="#">7</a></td>
+                  <td><a href="#">8</a></td>
+                  <td><a href="#">9</a></td>
+                </tr>
+                <tr>
+                  <td><a href="#">10</a></td>
+                  <td><a href="#">11</a></td>
+                  <td><a href="#" class="cell-border">12</a></td>
+                  <td><a href="#">13</a></td>
+                  <td><a href="#" class="cell-background">14</a></td>
+                  <td><a href="#">15</a></td>
+                  <td><a href="#">16</a></td>
+                </tr>
+                <tr>
+                  <td><a href="#">17</a></td>
+                  <td><a href="#">18</a></td>
+                  <td><a href="#">19</a></td>
+                  <td><a href="#">20</a></td>
+                  <td><a href="#">21</a></td>
+                  <td><a href="#">22</a></td>
+                  <td><a href="#">23</a></td>
+                </tr>
+                <tr>
+                  <td><a href="#">24</a></td>
+                  <td><a href="#">25</a></td>
+                  <td><a href="#">26</a></td>
+                  <td><a href="#">27</a></td>
+                  <td><a href="#">28</a></td>
+                  <td class="prev-next-month">1</td>
+                  <td class="prev-next-month">2</td>
+                </tr>
+              </tbody>
+            </table>
+          </div><!-- .task-calendar -->
+      </div><!-- .task-details -->
     </div> <!-- .wrapper -->
 
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript">
+    <script>
       $(document).ready(function(){
 
         $(".overlay-button").click(function(){
@@ -155,5 +239,6 @@
 
       });
     </script>
+    <script src="js/todolist.js"></script>
   </body>
 </html>
