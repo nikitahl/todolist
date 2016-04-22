@@ -43,11 +43,6 @@ body:before {
   position: relative;
 }
 
-.col-2 {
-  width: 50%;
-  float: left;
-}
-
 .centered-content {
   position: absolute;
   margin: 0;
@@ -55,7 +50,6 @@ body:before {
   left: 50%;
   margin-right: -50%;
   -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   cursor: pointer;
 }
@@ -91,8 +85,16 @@ body:before {
 .favorite-checkbox,
 .custom-checkbox {
   -webkit-appearance: none;
-    -moz-appearance: none;
       appearance: none;
+      /* FF hack*/
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: '';
+  box-shadow: none;
+  border: none;
+  outline: none;
+  /* &::-ms-expand {display: none;}  bonus: target IE10 */
+  font-size: 1em;
 }
 
 
@@ -273,12 +275,13 @@ body:before {
 
 .add-task-btn {
   -webkit-transition: -webkit-transform .3s;
+          transition: -webkit-transform .3s;
           transition: transform .3s;
+          transition: transform .3s, -webkit-transform .3s;
 }
 
 .close-task-button {
   -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 
